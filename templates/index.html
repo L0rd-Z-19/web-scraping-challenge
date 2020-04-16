@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Mission to Mars</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+        <a herf="/scrape">Scrape</a>
+
+
+        <form action = "http://localhost:5000/result" method = "POST">
+            <h2>Latest Mars News</h2>
+            <h4>{{ title }}</h4>
+            <p>{{ para }}</p>
+
+            <h2>Featured Mars Image</h2>
+            <img src={{ featured }} alt='featured.img'>
+            <h4>Current Weather on Mars</h4>
+            <p>{{ weather }}</p>
+            <h4>Mars Facts</h4>
+            <table>
+                {{ facts }}
+            </table>
+            <h2>Mars Hemispheres</h2>
+
+            <!-- <img src={{ mars_hemi }} alt='featured img'> -->
+            <h4>{{ hemi }}</h4>
+        </form>
+    </body>
+</html>
