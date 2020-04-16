@@ -26,7 +26,7 @@ def scrape():
     html = browser.html
     soup = BeautifulSoup(html, 'html.parser')
     img = soup.find('img',class_='fancybox-image')
-    featured_image_url = img['src']
+    featured_image_url = f"https://www.jpl.nasa.gov/{img['src']}"
 
     #get mars weather from twitter
     browser.visit('https://twitter.com/marswxreport?lang=en')
@@ -56,4 +56,5 @@ def scrape():
         hemis = {title:img_url}
         mars_hemispheres.append(hemis)
     browser.quit()
-    return(mars_title,mars_para,featured_image_url,mars_weather,mars_fact,mars_hemispheres)
+    package = [mars_title,mars_para,featured_image_url,mars_weather,mars_fact,mars_hemispheres]
+    return(package)
