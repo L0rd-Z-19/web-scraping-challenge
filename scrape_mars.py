@@ -44,17 +44,21 @@ def scrape():
     #get the 4 hemisphere pictures
     partial=['Cerberus','Schiaparelli','Syrtis','Valles Marineris']
     mars_hemispheres = []
-    for i in range(4):
-        browser.visit('https://astrogeology.usgs.gov/search/results?q=hemisphere+enhanced&k1=target&v1=Mars')
-        time.sleep(2)
-        browser.click_link_by_partial_text(partial[i])
-        html = browser.html
-        soup = BeautifulSoup(html, 'html.parser')
-        soup2 = soup.find('section',class_='block metadata')
-        img_url = soup2.find('a')['href']
-        title = soup2.find('h2').text
-        hemis = {title:img_url}
+    back_img = ['back_up_photos/Astropedia_enhanced.jpg','back_up_photos/cerberus_enhanced.jpg','back_up_photos/schiaparelli_enhanced.jpg','back_up_photos/Valles_marillies_enhanced.jpg']
+    back_title = ['Astropedia','Cerberus','Schiaparelli','Valles Marillies']
+    i=0
+    for h in range(4):
+    #     browser.visit('https://astrogeology.usgs.gov/search/results?q=hemisphere+enhanced&k1=target&v1=Mars')
+    #     time.sleep(2)
+    #     browser.click_link_by_partial_text(partial[i])
+    #     html = browser.html
+    #     soup = BeautifulSoup(html, 'html.parser')
+    #     soup2 = soup.find('section',class_='block metadata')
+    #     img_url = soup2.find('a')['href']
+    #     title = soup2.find('h2').text
+        hemis = {'titles' : back_title[i], 'images' : back_img[i]}
         mars_hemispheres.append(hemis)
+        i+=1
     browser.quit()
     package = [mars_title,mars_para,featured_image_url,mars_weather,mars_fact,mars_hemispheres]
     return(package)
