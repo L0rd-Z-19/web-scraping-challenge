@@ -1,6 +1,7 @@
 from flask import Flask, render_template, redirect, url_for
 import pymongo
 from scrape_mars import scrape
+from bs4 import BeautifulSoup
 
 app = Flask(__name__)
 #connect to mongo database
@@ -47,8 +48,11 @@ def complete():
     feature = posts.find_one({'_id':2})
     weather = posts.find_one({'_id':3})
     facts = posts.find_one({'_id':4})
+    facts = (facts['facts'])
+    soup = BeautifulSoup(facts, 'html.parser')
+    facts = soup.find('table', class_="tablepress tablepress-id-p-mars")
+    #facts = facts.split('>')
     hemispheres = posts.find_one({'_id':5})
-    facts = "fix html page"
 #feed the information to the index template
     return render_template('index.html',title=title['title'],para=para['paragraph'],feature=feature['image'],weather=weather['weather'],facts=facts,Astropedia=hemispheres['hemispheres'][0]['titles'],Astropedia_img=hemispheres['hemispheres'][0]['images'],Cerberus=hemispheres['hemispheres'][1]['titles'],Cerberus_img=hemispheres['hemispheres'][1]['images'],Schiaparelli=hemispheres['hemispheres'][2]['titles'],Schiaparelli_img=hemispheres['hemispheres'][2]['images'],Valles=hemispheres['hemispheres'][3]['titles'],Valles_img=hemispheres['hemispheres'][3]['images'])
 

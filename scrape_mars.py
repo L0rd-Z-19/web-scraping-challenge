@@ -1,4 +1,3 @@
-import pandas as pd
 from splinter import Browser
 from bs4 import BeautifulSoup
 import time
