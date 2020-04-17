@@ -44,8 +44,8 @@ def scrape():
     #get the 4 hemisphere pictures
     partial=['Cerberus','Schiaparelli','Syrtis','Valles Marineris']
     mars_hemispheres = []
-    back_img = ['back_up_photos/Astropedia_enhanced.jpg','back_up_photos/cerberus_enhanced.jpg','back_up_photos/schiaparelli_enhanced.jpg','back_up_photos/Valles_marillies_enhanced.jpg']
-    back_title = ['Astropedia','Cerberus','Schiaparelli','Valles Marillies']
+    back_img = ['back_up_photos/Syrtis_enhanced.jpg','back_up_photos/cerberus_enhanced.jpg','back_up_photos/schiaparelli_enhanced.jpg','back_up_photos/Valles_marillies_enhanced.jpg']
+    back_title = ['Syrtis Major','Cerberus','Schiaparelli','Valles Marillies']
     i=0
     for h in range(4):
     #     browser.visit('https://astrogeology.usgs.gov/search/results?q=hemisphere+enhanced&k1=target&v1=Mars')
